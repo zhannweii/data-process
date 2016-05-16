@@ -42,17 +42,17 @@ class Model(object):
             'passwd': cf.get('aliyun_db', 'passwd'), 
             'db': 'taiji'
         }
-                db = mysqlClass.mysqlClass(dbconfig)
-                return db
+        db = mysqlClass.mysqlClass(dbconfig)
+        return db
 
     def getInfo(self):
         """ test for use"""
-                username = 'zhangwei41'    
+        username = 'zhangwei41'    
         sql = "select * from user_log where username = '%s' " % (username)
         self.db.query(sql)
         # userInfo = self.db.fetchOneRow()
         userInfo = self.db.fetchAllRows()
-                return userInfo
+        return userInfo
 
     def __del__(self):
         """ 资源释放（GC自动调用）"""
